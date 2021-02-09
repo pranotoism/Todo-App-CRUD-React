@@ -43,20 +43,30 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <Container maxWidth="sm">
-          <Typography
-            style={{ padding: 16}}
-            variant="h2"
-          >
-            React Todo List</Typography>
-          <TodoForm addTodo={addTodo} />
-          <TodoList
-            todos={todos}
-            toggleComplete={toggleComplete}
-            removeTodo={removeTodo}
-          />
-      </Container>
+    <div className="App" style={{display: 'flex'}}>
+      <Container maxWidth="lg">
+        
+        <div className="row col-12">
+          <div className="col-4 p-5">
+            <Typography
+              style={{ padding: 16}}
+              variant="h2"
+            >
+              React Todo List</Typography>
+            <TodoForm addTodo={addTodo} />
+          </div>
+
+          <div className="col-8">
+            <TodoList
+              todos={todos}
+              toggleComplete={toggleComplete}
+              removeTodo={removeTodo}
+            />
+          </div>
+        </div>
+          
+     
+    </Container>
     </div>
   );
 }

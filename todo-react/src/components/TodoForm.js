@@ -61,8 +61,8 @@ function TodoForm({ addTodo }) {
   }
 
   return (
-    <form className="todo-form" onSubmit={handleSubmit}>
-      <div className={'col-7 row'} style={{}}>
+    <form className="todo-form row" onSubmit={handleSubmit}>
+      <div className={'col-9 row'}>
         <TextField
           label="Task"
           name="task"
@@ -99,11 +99,11 @@ function TodoForm({ addTodo }) {
             max={4}
           />
 
+        <Button className="mt-5" type="submit">submit</Button>
       </div>
 
-      <div className='col-3 mt-4' style={{}}>
-        <Button type="submit">submit</Button>
-      </div>
+      
+      
 
 
     </form>
