@@ -1,4 +1,4 @@
-import Typography from '@material-ui/core/Typography'
+import {Typography, Container} from '@material-ui/core'
 import React, { useEffect, useState } from 'react'
 import './App.css';
 import TodoForm from './components/TodoForm'
@@ -44,17 +44,19 @@ function App() {
 
   return (
     <div className="App">
-        <Typography
-          style={{ padding: 16}}
-          variant="h2"
-        >
-          New Fancy Todo</Typography>
-        <TodoForm addTodo={addTodo} />
-        <TodoList
-          todos={todos}
-          toggleComplete={toggleComplete}
-          removeTodo={removeTodo}
-        />
+      <Container maxWidth="sm">
+          <Typography
+            style={{ padding: 16}}
+            variant="h2"
+          >
+            React Todo List</Typography>
+          <TodoForm addTodo={addTodo} />
+          <TodoList
+            todos={todos}
+            toggleComplete={toggleComplete}
+            removeTodo={removeTodo}
+          />
+      </Container>
     </div>
   );
 }
