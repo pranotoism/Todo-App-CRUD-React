@@ -23,7 +23,7 @@ function handleRemoveClick() {
           textDecoration: todo.completed ? "line-through" : null
         }}
       >
-        {todo.task}
+        {`${todo.task} Due: ${todo.due} Priority: ${todo.priority}`}
       </Typography>
       <IconButton onClick={handleRemoveClick}>
         <CloseIcon />

@@ -41,7 +41,7 @@ function TodoForm({ addTodo }) {
     id: '',
     task: '',
     due: '',
-    priority: 0,
+    priority: 1,
     completed: false
   })
 
@@ -51,12 +51,21 @@ function TodoForm({ addTodo }) {
     setTodo({ ...todo, task: e.target.value })
   }
 
+  function handleDueInputChange(e) {
+    setTodo({ ...todo, due: e.target.value })
+  }
+
+  function handlePriorityChange(e) {
+    setTodo({ ...todo, priority: e.target.ariaValueText })
+  }
+
   function handleSubmit(e) {
     e.preventDefault()
+    console.log(todo);
     if (todo.task.trim()) {
       addTodo({ ...todo, id: uuidv4() })
       // reset inputan si task
-      setTodo({ ...todo, task: '' })
+      setTodo({ ...todo, task: ''})
     }
   }
 
@@ -74,12 +83,13 @@ function TodoForm({ addTodo }) {
         <TextField
             id="datetime-local"
             label="Due"
-            type="datetime-local"
-            defaultValue="2017-05-24T10:30"
+            type="date"
+            defaultValue={todo.due}
             className='mt-3'
             InputLabelProps={{
               shrink: true,
             }}
+            onChange={handleDueInputChange}
         />
 
         <div className="mt-3" style={{textAlign: 'left', paddingLeft: '0px'}}>
@@ -97,6 +107,7 @@ function TodoForm({ addTodo }) {
             marks={marks}
             min={1}
             max={4}
+            onChange={handlePriorityChange}
           />
 
         <Button className="mt-5" type="submit">submit</Button>
